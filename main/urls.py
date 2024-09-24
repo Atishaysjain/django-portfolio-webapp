@@ -13,5 +13,4 @@ urlpatterns = [
     path('mentoring-leadership/', views.mentoring_leadership, name='mentoring_leadership'),
     path('gallery/', views.gallery, name='gallery'),
     path('contact/', views.contact, name='contact'),
-    path('contact/', views.contact, name='contact'),
 ]
