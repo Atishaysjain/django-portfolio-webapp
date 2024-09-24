@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}About Me{% endblock %}
+
+{% block content %}
+<div class="about-section bg-light py-5">
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="row align-items-center">
+            <div class="col-md-4">
+                <img src="{% static 'images/profile_photo.jpg' %}" class="img-fluid rounded-circle mb-4" alt="Profile Photo">
+            </div>
+            <div class="col-md-8">
+                <h2>Hello, I'm Hamza Khan</h2>
+                <p class="lead">I am currently pursuing my Master's in Computer Science at San Jose State University. With experience in frontend and backend development, I have worked on cloud-based projects and AI-driven applications.</p>
+                <p>I am passionate about coding, problem-solving, and learning new technologies that can help shape the future of software development.</p>
+                <a href="{% static 'pdfs/resume.pdf' %}" class="btn btn-outline-primary" download>Download Resume</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Skills Section -->
+<div class="skills-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Skills & Expertise</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fas fa-code fa-3x text-primary mb-3"></i>
+                <h5>Programming</h5>
+                <p>Java, Python, C++, SQL, JavaScript</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-server fa-3x text-primary mb-3"></i>
+                <h5>Backend Development</h5>
+                <p>Firebase, SQL, Cloud Functions</p>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+                <h5>Mobile Development</h5>
+                <p>Flutter, Dart</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Achievements/Experience Section -->
+<div class="experience-section bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Experience & Achievements</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>Professional Experience</h5>
+                <ul>
+                    <li>Software Developer Intern at a Startup</li>
+                    <li>Built AI-driven applications and cloud functions</li>
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <h5>Academic Achievements</h5>
+                <ul>
+                    <li>Dean's List, San Jose State University</li>
+                    <li>Completed multiple research projects in AI and Machine Learning</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hobbies & Interests Section -->
+<div class="hobbies-section py-5">
+    <div class="container">
+        <h2 class="text-center mb-5">Hobbies & Interests</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <i class="fas fa-hiking fa-3x text-success mb-3"></i>
+                <h5>Hiking</h5>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-gamepad fa-3x text-success mb-3"></i>
+                <h5>Gaming</h5>
+            </div>
+            <div class="col-md-4">
+                <i class="fas fa-book fa-3x text-success mb-3"></i>
+                <h5>Reading</h5>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

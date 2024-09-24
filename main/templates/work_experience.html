@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Work Experience{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-5">Work Experience</h2>
+    <div class="row">
+
+        <!-- First Job Experience -->
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">Software Development Intern</h5>
+                    <h6 class="card-subtitle text-muted mb-2">Stealth Startup | Palo Alto, CA</h6>
+                    <p class="card-text text-muted">
+                        <i class="fas fa-calendar-alt"></i> May 2024 - September 2024
+                    </p>
+                    <ul>
+                        <li>Implemented Firestore cloud functions for diverse applications, including automated email notifications for new user accounts, on-demand data retrieval for client-side applications, and real-time data processing.</li>
+                        <li>Designed and developed responsive front-end UI pages using Flutter, enhancing mobile application interfaces and improving user engagement.</li>
+                        <li>Conducted thorough testing and debugging of applications, ensuring high quality, reliability, and optimal performance across both front-end and back-end components.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Second Job Experience -->
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">Software Development Intern</h5>
+                    <h6 class="card-subtitle text-muted mb-2">Stealth Startup | San Francisco, CA</h6>
+                    <p class="card-text text-muted">
+                        <i class="fas fa-calendar-alt"></i> June 2023 - September 2023
+                    </p>
+                    <ul>
+                        <li>Collaborated on the end-to-end development of a full-stack satellite-tasking web application using a microservice architecture, adopted Agile software development practices, and presented progress to CACI executives biweekly.</li>
+                        <li>Researched and implemented a feasibility engine using Orekit in Java Spring Boot framework, designed and created the script for the relational database in PostgreSQL, and implemented CRUD functionalities using React.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Research{% endblock %}
+
+{% block content %}
+<h2 class="text-center">Research Papers</h2>
+<div class="list-group">
+    {% for paper in papers %}
+    <a href="{{ paper.paper_link }}" class="list-group-item list-group-item-action" target="_blank">
+        <h5 class="mb-1">{{ paper.title }}</h5>
+        <p class="mb-1">{{ paper.publication_name }} - {{ paper.publication_date }}</p>
+        <small>Authors: {{ paper.author_names }}</small>
+    </a>
+    {% endfor %}
+</div>
+
+<h2 class="text-center mt-5">Research Projects</h2>
+<div class="row">
+    {% for project in projects %}
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ project.start_year }} - {{ project.end_year|default:"Present" }}</h6>
+                <p class="card-text">{{ project.description }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

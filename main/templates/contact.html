@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact Me{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Left Container with Contact Info (Bootstrap Card) -->
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h2>Contact Me</h2>
+            <p>Thank you for visiting my portfolio. If you believe my skills are a perfect fit for your needs, don't hesitate to contact me!</p>
+            <ul class="list-unstyled">
+                <li><i class="fas fa-map-marker-alt"></i> <strong>Location:</strong> San Jose</li>
+                <li><i class="fas fa-envelope"></i> <strong>Email:</strong> filler@gmail.com</li>
+                <li><i class="fas fa-phone"></i> <strong>Phone:</strong> 123-456-7777</li>
+            </ul>
+
+            <!-- Social Links -->
+            <div class="social-links mt-4">
+                <a href="https://github.com/hzkSJSU" target="_blank" class="btn btn-outline-dark mx-2">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/hamzazk99/" target="_blank" class="btn btn-outline-info mx-2">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Container with Contact Form (Bootstrap Card) -->
+    <div class="col-md-6">
+        <div class="card p-4">
+            <h2>Get in Touch</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="id_name" class="form-label">Name</label>
+                    {{ form.name }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_email" class="form-label">Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_subject" class="form-label">Subject</label>
+                    {{ form.subject }}
+                </div>
+                <div class="mb-3">
+                    <label for="id_message" class="form-label">Message</label>
+                    {{ form.message }}
+                </div>
+                <button type="submit" class="btn btn-success">Send Message</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

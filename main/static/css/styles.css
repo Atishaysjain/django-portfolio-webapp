@@ -1,0 +1,127 @@
+/* styles.css */
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    padding-top: 70px;
+}
+
+h1, h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Navbar Styles */
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    color: #007bff !important;
+}
+
+.nav-link:hover {
+    color: #0056b3 !important;
+}
+
+/* Footer Styles */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Custom Classes */
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.card {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+}
+
+.social-links .btn {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    margin-top: 10px;
+}
+ul.list-unstyled {
+    margin-top: 15px;
+}
+
+.social-links .btn i {
+    margin-right: 8px;
+}
+
+
+ul.list-unstyled li i {
+    margin-right: 8px;
+    color: #007bff; /* You can choose any color */
+}
+
+.social-links .btn {
+    margin-top: 15px;
+}
+
+.contact-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.about-section {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+}
+
+.skills-section, .hobbies-section {
+    padding: 50px 0;
+}
+
+.skills-section .col-md-4, .hobbies-section .col-md-4 {
+    margin-bottom: 20px;
+}
+
+.skills-section i, .hobbies-section i {
+    margin-bottom: 15px;
+    color: #007bff;
+}
+
+.experience-section {
+    background-color: #f8f9fa;
+}
+
+.experience-section h5 {
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+}
+
+h2.text-center {
+    margin-bottom: 40px;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+
+.card-title {
+    font-size: 1.3rem;
+    color: #007bff; /* Optional: Change to your preferred color */
+}
+
+.card-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    font-size: 0.95rem;
+}
