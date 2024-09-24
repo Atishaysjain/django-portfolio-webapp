@@ -15,17 +15,21 @@
 
 
 2. Create and activate a virtual environment:
+   ```bash
    python3 -m venv venv
    source venv/bin/activate  # On macOS/Linux
    venv\Scripts\activate     # On Windows
 
-3. Install the dependencies:
+4. Install the dependencies:
+   ```bash
    pip install -r requirements.txt
 
-4. Set up the database:
+6. Set up the database:
+   ```bash
    python manage.py migrate
 
-5. Run the development server:
+8. Run the development server:
+   ```bash
    python manage.py runserver
 
 
