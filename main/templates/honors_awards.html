@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Honors & Awards{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <!-- Awards Section -->
+    <h2 class="text-center mb-5">Awards and Certifications</h2>
+    <div class="text-center mb-5"></div>
+        <p class="lead"> I have earned several certifications and awards that reflect my expertise and achievements. I hold certifications such as AWS Certified Solutions Architect – Associate, Google Cloud Professional Data Engineer, Microsoft Certified: Azure AI Engineer Associate, and Certified Kubernetes Administrator, which highlight my skills in cloud architecture, data engineering, AI solutions, and container orchestration. In terms of awards, I was recognized for my innovative contributions, including winning Best Hackathon Project at HackTech 2022, Top Performer in Computer Science at my university, and Best Innovative Solution at the TechCrunch Hackathon. Additionally, I won Most Impactful Hack at Major League Hacking. </p>
+    </div>
+    <h3 class="text-center mb-5">Awards</h3>
+    <div class="row">
+        {% for award in awards %}
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">{{ award.award_title }}</h5>
+                    <h6 class="card-subtitle text-muted mb-2">Competition: {{ award.competition_name }}</h6>
+                    <p class="card-text">
+                        <i class="fas fa-calendar-alt"></i> Date: <span class="font-weight-bold">{{ award.award_date }}</span>
+                    </p>
+                    <p class="card-text">
+                        <i class="fas fa-info-circle"></i> Description: <span class="font-weight-bold">{{ award.description }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Certifications Section -->
+    <h3 class="text-center mb-5">Certifications</h3>
+    <div class="row">
+        {% for certification in certifications %}
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">{{ certification.certification_title }}</h5>
+                    <h6 class="card-subtitle text-muted mb-2">Issued by: {{ certification.issuing_organization }}</h6>
+                    <p class="card-text">
+                        <i class="fas fa-calendar-alt"></i> Issued on: <span class="font-weight-bold">{{ certification.issue_date }}</span><br>
+                        <i class="fas fa-hourglass-end"></i> Expires on: <span class="font-weight-bold">{{ certification.expiry_date }}</span>
+                    </p>
+                    <p class="card-text">
+                        <i class="fas fa-star"></i> Score: <span class="font-weight-bold">{{ certification.score }}</span><br>
+                        <i class="fas fa-clock"></i> Duration: <span class="font-weight-bold">{{ certification.duration }}</span>
+                    </p>
+                    <p class="card-text">
+                        <i class="fas fa-info-circle"></i> Description: <span class="font-weight-bold">{{ certification.description }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

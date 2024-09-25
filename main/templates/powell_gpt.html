@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}AI Chatbot{% endblock %}
+
+{% block content %}
+<div class="chatbot-section bg-light py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Chat with Me</h2>
+        
+        <!-- Chat window -->
+        <div class="chat-window bg-white p-4 rounded shadow-sm mb-3" style="height: 400px; overflow-y: scroll;" id="chat-window">
+            <div id="chat-content">
+                <!-- Messages will appear here -->
+            </div>
+        </div>
+
+        <!-- User input -->
+        <div class="chat-input d-flex">
+            <input type="text" id="user-input" class="form-control" placeholder="Ask me anything..." autofocus>
+            <button id="send-btn" class="btn btn-primary ml-2">Send</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const sendBtn = document.getElementById('send-btn');
+    const userInput = document.getElementById('user-input');
+    const chatWindow = document.getElementById('chat-window');
+    const chatContent = document.getElementById('chat-content');
+
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    function sendMessage() {
+        const message = userInput.value.trim();
+        if (message === '') return;
+
+        // Display user message
+        displayMessage(message, 'user');
+
+        // Clear input
+        userInput.value = '';
+
+        // Make AJAX call to Django view
+        fetch("{% url 'powell_gpt' %}", {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}',
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                'message': message
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Display bot response
+            displayMessage(data.message, 'bot');
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+
+    function displayMessage(message, sender) {
+        const formattedMessage = message.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+        const messageElement = document.createElement('div');
+        messageElement.classList.add('message', sender === 'user' ? 'text-right' : 'text-left');
+        messageElement.innerHTML = `<p class="${sender === 'user' ? 'bg-primary text-white' : 'bg-secondary text-white'} p-2 rounded">${formattedMessage}</p>`;
+        chatContent.appendChild(messageElement);
+        chatWindow.scrollTop = chatWindow.scrollHeight;
+    }
+</script>
+
+<style>
+    .message p {
+        display: inline-block;
+        max-width: 70%;
+    }
+    .text-right {
+        text-align: right;
+    }
+    .text-left {
+        text-align: left;
+    }
+</style>
+{% endblock %}

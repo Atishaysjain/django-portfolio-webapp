@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Club Activities{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-5">Club Activities</h2>
+    <div class="text-center mb-5">
+        <p class="lead"> During my time at university, I was actively involved in several clubs and leadership roles. As a Research Member of the AI Research Lab, I conducted research on applying deep learning models to healthcare, publishing papers and presenting at conferences. I led a team in multiple hackathons, securing top finishes with innovative machine learning solutions. As Project Lead of the Robotics Club, I spearheaded the development of autonomous robots for competitions. As Vice President of the IEEE Student Chapter, I organized workshops and events. Additionally, I served as a Teaching Assistant, mentoring students in machine learning and data structures. </p>
+    </div>
+    <div class="row">
+        {% for activity in club_activities %}
+        <div class="col-md-6">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h5 class="card-title font-weight-bold">{{ activity.club_name }}</h5>
+                    <h6 class="card-subtitle text-muted mb-2">{{ activity.position }}</h6>
+                    <p class="card-text">
+                        <i class="fas fa-tasks"></i> Responsibilities: <span class="font-weight-bold">{{ activity.responsibilities }}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Testimonial Section -->
+    <h2 class="text-center mb-5">Testimonials</h2>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <p class="card-text text-center">
+                        <i class="fas fa-quote-left fa-2x"></i>
+                        <br><br>
+                        James Powell has been a phenomenal contributor to every initiative he takes part in. As a <strong>Team Leader in Hackathons</strong>, he consistently led his team to top finishes through innovative solutions, often leveraging cutting-edge machine learning techniques. His role as <strong>Project Lead in the Robotics Club</strong> was especially impressive, where his leadership and technical acumen resulted in the successful development of autonomous robots that outperformed in campus competitions.
+                        <br><br>
+                        Beyond his technical skills, James has proven to be an exceptional mentor and organizer. As the <strong>Vice President of the IEEE Student Chapter</strong>, he orchestrated workshops that greatly benefited the student body, demonstrating his commitment to knowledge-sharing and community building.
+                    </p>
+                    <p class="text-right">
+                        <strong>Professor John Smith</strong><br>
+                        Advisor, Robotics Club
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

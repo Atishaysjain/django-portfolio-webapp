@@ -2,30 +2,54 @@
 {% load static %}
 {% block title %}Research{% endblock %}
 
+
 {% block content %}
-<h2 class="text-center">Research Papers</h2>
-<div class="list-group">
-    {% for paper in papers %}
-    <a href="{{ paper.paper_link }}" class="list-group-item list-group-item-action" target="_blank">
-        <h5 class="mb-1">{{ paper.title }}</h5>
-        <p class="mb-1">{{ paper.publication_name }} - {{ paper.publication_date }}</p>
-        <small>Authors: {{ paper.author_names }}</small>
-    </a>
-    {% endfor %}
+
+<h2 class="text-center mb-4">Research Papers and Projects</h2>
+
+<div class="text-center mb-5">
+    <p class="lead"> I have authored several research papers across a range of fields, including quantum computing, AI ethics, deep learning, blockchain, and machine learning for climate change. My work on quantum computing provides an in-depth overview of the field and its potential to transform industries like cryptography and drug discovery. I’ve also explored ethical challenges in AI, focusing on fairness and accountability, and delved into advanced natural language processing techniques in deep learning. In the realm of blockchain, my research highlights its applications in finance. Additionally, I’ve worked on how machine learning can be used to address climate change and support environmental conservation efforts.</p>
 </div>
 
-<h2 class="text-center mt-5">Research Projects</h2>
-<div class="row">
-    {% for project in projects %}
-    <div class="col-md-6">
-        <div class="card mb-4">
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ project.start_year }} - {{ project.end_year|default:"Present" }}</h6>
-                <p class="card-text">{{ project.description }}</p>
+<div class="container py-4">
+    <!-- Research Papers Section -->
+    <h2 class="text-center mb-4">Papers</h2>
+    <div class="list-group">
+        {% for paper in papers %}
+        <a href="{{ paper.paper_link }}" class="list-group-item list-group-item-action py-3" target="_blank">
+            <div class="d-flex w-100 justify-content-between">
+                <h6 class="font-weight-bold mb-1">{{ paper.paper_title }}</h6>
+                <small class="text-muted">{{ paper.publication_date }}</small>
+            </div>
+            <p class="mb-1">{{ paper.publication_name }}</p>
+            <small class="text-muted"><i class="fas fa-users"></i> Authors: {{ paper.author_names }}</small>
+            <p class="card-text mt-2"><i class="fas fa-book"></i> {{ paper.description }}</p>
+        </a>
+        {% endfor %}
+    </div>
+
+    <!-- Research Projects Section -->
+    <h2 class="text-center mt-5 mb-4">Projects</h2>
+    <div class="row">
+        {% for project in projects %}
+        <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <a href="{{ project.project_link }}" class="text-decoration-none" target="_blank">
+                        <h5 class="card-title text-primary">{{ project.project_title }}</h5>
+                    </a>
+                    <p class="card-text text-muted mb-2">
+                        <i class="fas fa-calendar-alt"></i> {{ project.start_month }}/{{ project.start_year }} - {{ project.end_month }}/{{ project.end_year|default:"Present" }}<br>
+                        <i class="fas fa-map-marker-alt"></i> {{ project.affiliated_institute }}
+                    </p>
+                    <p class="card-text">{{ project.description }}</p>
+                    <p class="card-text">
+                        <strong>Technologies Used:</strong> {{ project.technologies_used }}
+                    </p>
+                </div>
             </div>
         </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

@@ -5,40 +5,33 @@
 {% block content %}
 <div class="container py-5">
     <h2 class="text-center mb-5">Education</h2>
+    <div class="text-center mb-5">
+        <p class="lead"> I am currently pursuing a PhD in Artificial Intelligence at MIT, where I focus on advanced machine learning, deep learning, and natural language processing. In addition to my studies, I am actively involved in AI research, speak at conferences, and lead tech workshops. Previously, I earned a Master of Science in Computer Science from San Jose State University, graduating in May 2023 with a GPA of 3.8. My coursework included data structures, algorithms, and distributed systems. I also hold a Bachelor’s in Electrical Engineering and Computer Science from UC Berkeley, where I participated in robotics research and IEEE student activities.</p>
+    </div>
     <div class="row">
-        <!-- Bachelor's Degree -->
+        {% for edu in education_entries %}
         <div class="col-md-6">
             <div class="card shadow-sm mb-4">
                 <div class="card-body">
-                    <h5 class="card-title font-weight-bold">Bachelor of Science in Software Engineering</h5>
-                    <h6 class="card-subtitle text-muted mb-2">San Jose State University</h6>
+                    <h5 class="card-title font-weight-bold">{{ edu.degree }}</h5>
+                    <h6 class="card-subtitle text-muted mb-2">{{ edu.school_name }}</h6>
                     <p class="card-text text-muted">
-                        <i class="fas fa-calendar-alt"></i> August 2018 - December 2022<br>
-                        <i class="fas fa-map-marker-alt"></i> San Jose, California
+                        <i class="fas fa-calendar-alt"></i> {{ edu.start_month }}/{{ edu.start_year }} - {{ edu.end_month }}/{{ edu.end_year }}<br>
+                        <i class="fas fa-map-marker-alt"></i> {{ edu.location }}
                     </p>
                     <p class="card-text">
-                        <i class="fas fa-graduation-cap"></i> GPA: <span class="font-weight-bold">3.8</span>
+                        <i class="fas fa-graduation-cap"></i> GPA: <span class="font-weight-bold">{{ edu.gpa }}</span>
+                    </p>
+                    <p class="card-text">
+                        <i class="fas fa-book"></i> Coursework: <span class="font-weight-bold">{{ edu.coursework }}</span>
+                    </p>
+                    <p class="card-text">
+                        <i class="fas fa-users"></i> Activities: <span class="font-weight-bold">{{ edu.activities }}</span>
                     </p>
                 </div>
             </div>
         </div>
-
-        <!-- Master's Degree -->
-        <div class="col-md-6">
-            <div class="card shadow-sm mb-4">
-                <div class="card-body">
-                    <h5 class="card-title font-weight-bold">Master of Science in Computer Science</h5>
-                    <h6 class="card-subtitle text-muted mb-2">San Jose State University</h6>
-                    <p class="card-text text-muted">
-                        <i class="fas fa-calendar-alt"></i> January 2024 - December 2025<br>
-                        <i class="fas fa-map-marker-alt"></i> San Jose, California
-                    </p>
-                    <p class="card-text">
-                        <i class="fas fa-graduation-cap"></i> GPA: <span class="font-weight-bold">4.0</span>
-                    </p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
