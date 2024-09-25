@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Gallery{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-5">Gallery</h2>
+
+    <!-- Workplace Photos Section -->
+    <section>
+        <h3 class="mb-4">Workplace Photos</h3>
+        <div class="row">
+            {% for photo in workplace_photos %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="img-container">
+                        <img src="{% static photo.url %}" class="card-img-top" alt="{{ photo.alt }}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Hobby Photos Section -->
+    <section class="mt-5">
+        <h3 class="mb-4">Hobby Photos</h3>
+        <div class="row">
+            {% for photo in hobby_photos %}
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="img-container">
+                        <img src="{% static photo.url %}" class="card-img-top" alt="{{ photo.alt }}">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}
