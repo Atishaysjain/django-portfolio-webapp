@@ -50,7 +50,7 @@ def powell_gpt(request):
         with open(os.path.join('main', 'static', 'subject_information', 'portfolio.txt'), 'r') as f:
             subject_portfolio = f.read()
 
-        client = openai.Client(api_key=openai_api_key)
+        client = openai.Client(api_key=settings.OPENAI_API_KEY)
         completion = client.chat.completions.create(
             model="chatgpt-4o-latest",
             messages=[
@@ -107,7 +107,7 @@ def contact(request):
                 subject=f"{subject} (from {name})",  # Email subject
                 message=f"Message from {name} ({email}):\n\n{message}",  # Email body
                 from_email=settings.EMAIL_HOST_USER,  # The email sending the message
-                recipient_list=['hamza.z.khan96@gmail.com'],  # The email(s) that will receive the message
+                recipient_list=[settings.EMAIL_HOST_USER],  # The email(s) that will receive the message
                 fail_silently=False,  # Raise errors if email fails
             )
 
